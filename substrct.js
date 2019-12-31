@@ -3,7 +3,6 @@
 
 function subtract(a, b) {
 
-    // TODO return
-	return a-b;
+    	return a-b;
 
 };
