@@ -1,5 +1,4 @@
 
-// subtract.js
 
 function subtract(a, b) {
 
