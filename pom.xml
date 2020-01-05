@@ -20,6 +20,20 @@
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 	</properties>
 
+
+<distributionManagement>
+  <repository>
+    <id>release</id>
+    <name>releases</name>
+    <url>http://192.168.0.107:7071/artifactory/libs-release-local</url>
+  </repository>
+  <snapshotRepository>
+    <id>snapshot</id>
+    <name>snapshots</name>
+    <url>http://192.168.0.107:7071/artifactory/libs-snapshot-local</url>
+  </snapshotRepository>
+</distributionManagement>
+
 	<dependencies>
 
 		<dependency>
