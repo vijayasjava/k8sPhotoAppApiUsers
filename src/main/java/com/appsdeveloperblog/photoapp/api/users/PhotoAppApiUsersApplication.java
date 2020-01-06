@@ -19,11 +19,13 @@ import feign.codec.ErrorDecoder;
 @EnableDiscoveryClient
 @EnableFeignClients
 @EnableCircuitBreaker
+
 public class PhotoAppApiUsersApplication extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(PhotoAppApiUsersApplication.class);
+
 	}
 
 	@Bean
