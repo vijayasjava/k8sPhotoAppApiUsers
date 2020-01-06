@@ -22,10 +22,8 @@ import feign.codec.ErrorDecoder;
 
 public class PhotoAppApiUsersApplication extends SpringBootServletInitializer {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(PhotoAppApiUsersApplication.class);
-
+	public static void main(String[] args) {
+		  SpringApplication.run(PhotoAppApiUsersApplication.class, args);
 	}
 
 	@Bean
