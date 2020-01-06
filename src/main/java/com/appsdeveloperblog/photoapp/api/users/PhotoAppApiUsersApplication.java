@@ -17,9 +17,9 @@ import feign.codec.ErrorDecoder;
 @EnableDiscoveryClient
 @EnableFeignClients
 @EnableCircuitBreaker
-public class PhotoAppApiUsersApplication {
+public class PhotoAppApiUsersApplication {//to do add web application
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {//pls change this
 		SpringApplication.run(PhotoAppApiUsersApplication.class, args);
 	}
 
