@@ -21,6 +21,11 @@
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 	</properties>
 
+<scm>
+   <connection>scm:git:https://github.com/vijayasjava/k8sPhotoAppApiUsers.git</connection>
+   <url>https://github.com/vijayasjava/k8sPhotoAppApiUsers</url>
+   <developerConnection>scm:git:https://github.com/vijayasjava/k8sPhotoAppApiUsers</developerConnection>
+</scm>
 
 <distributionManagement>
   <repository>
