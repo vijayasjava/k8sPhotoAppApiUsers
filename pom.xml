@@ -20,9 +20,9 @@
 	</properties>
 
 <scm>
-   <connection>scm:git:https://github.com/vijayasjava/k8sPhotoAppApiUsers.git</connection>
-   <url>https://github.com/vijayasjava/k8sPhotoAppApiUsers</url>
-   <developerConnection>scm:git:https://github.com/vijayasjava/k8sPhotoAppApiUsers</developerConnection>
+   <connection>scm:git:git@github.com:vijayasjava/k8sPhotoAppApiUsers.git</connection>
+   <url>git@github.com:vijayasjava/k8sPhotoAppApiUsers.git</url>
+   <developerConnection>scm:git:git@github.com:vijayasjava/k8sPhotoAppApiUsers.git</developerConnection>
   <tag>HEAD</tag>
   </scm>
 
