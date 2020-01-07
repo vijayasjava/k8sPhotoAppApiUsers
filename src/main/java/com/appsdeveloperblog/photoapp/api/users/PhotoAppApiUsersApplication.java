@@ -16,9 +16,9 @@ import feign.Logger;
 import feign.codec.ErrorDecoder;
 
 @SpringBootApplication
-@EnableDiscoveryClient
-@EnableFeignClients
-@EnableCircuitBreaker
+//@EnableDiscoveryClient
+//@EnableFeignClients
+//@EnableCircuitBreaker
 
 public class PhotoAppApiUsersApplication extends SpringBootServletInitializer {
 
@@ -26,6 +26,10 @@ public class PhotoAppApiUsersApplication extends SpringBootServletInitializer {
 		  SpringApplication.run(PhotoAppApiUsersApplication.class, args);
 	}
 
+	  @Override
+	  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+	    return application.sources(PhotoAppApiUsersApplication.class);
+	  }
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
