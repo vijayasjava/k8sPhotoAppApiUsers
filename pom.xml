@@ -9,11 +9,7 @@
 	</parent>
 	<groupId>com.mars.photoapp</groupId>
 	<artifactId>k8sPhotoAppApiUsers</artifactId>
-<<<<<<< HEAD
 	<version>0.2.0-SNAPSHOT</version>
-=======
-	<version>0.1.2-SNAPSHOT</version>
->>>>>>> refs/heads/release/010release
 	<name>k8sPhotoAppApiUsers</name>
 	<description>Users microservice</description>
 	<packaging>war</packaging>
