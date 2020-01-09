@@ -1,6 +1,7 @@
 node {
    def mvnHome
    stage('Prepare') {
+      git url: 'git@github.com:vijayasjava/k8sPhotoAppApiUsers.git', branch: 'develop'
       mvnHome = tool 'MAVENHOME'
    }
    stage('Build') {
