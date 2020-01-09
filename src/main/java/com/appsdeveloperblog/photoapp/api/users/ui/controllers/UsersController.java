@@ -25,7 +25,7 @@ public class UsersController {
 
 	@GetMapping("/status/check")
 	public String status() {
-		return "application is up and running well..please be happpy";
+		return "application is up and running well..please be happpy deploy by pipeline script";
 	}
 
 }
