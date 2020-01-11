@@ -47,11 +47,11 @@ node {
 
  if(env.BRANCH_NAME ==~ /feature.*/){
     stage('Deploy phase') {
-       sh 'curl -u deployer:deployer -T target/**.war "http://a35f12ea.ngrok.io/manager/text/deploy?path=/devops&update=true"'
+       sh 'curl -u deployer:deployer -T target/**.war "http://localhost:8080/manager/text/deploy?path=/devops&update=true"'
     }
 
     stage("Smoke Test"){
-       sh "curl --retry-delay 10 --retry 5 http://a35f12ea.ngrok.io/devops/users/status/check"
+       sh "curl --retry-delay 10 --retry 5 http://localhost:8080/devops/users/status/check"
     }
 
   }
