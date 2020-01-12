@@ -23,7 +23,7 @@ public class UsersController {
 
 	@GetMapping("/status/check")
 	public String status() {
-		return "v 0.3.1";
+		return "V 0.3.1";
 	}
 
 }
