@@ -79,6 +79,46 @@ node {
 
       }
 
+     if(env.BRANCH_NAME ==~ /hotfix.*/){
+        pom = readMavenPom file: 'pom.xml'
+        artifactVersion = pom.version.replace("-SNAPSHOT", "")
+        tagVersion = 'v'+artifactVersion
+
+        stage('Release Build And Upload Artifacts') {
+          if (isUnix()) {
+             sh "'${mvnHome}/bin/mvn' clean release:clean release:prepare release:perform"
+          } else {
+             bat(/"${mvnHome}\bin\mvn" clean release:clean release:prepare release:perform/)
+          }
+        }
+         stage('Deploy To Dev') {
+            sh 'curl -u deployer:deployer -T target/**.war "http://localhost:4040/manager/text/deploy?path=/usermanagement&update=true"'
+         }
+
+         stage("Smoke Test Dev"){
+             sh "curl --retry-delay 10 --retry 5 http://localhost:4040/usermanagement/users/status/check"
+         }
+
+         stage("QA Approval"){
+             echo "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is waiting for input. Please go to ${env.BUILD_URL}."
+             input 'Approval for QA Deploy?';
+         }
+
+         stage("Deploy from Artifactory to QA"){
+           retrieveArtifact = 'http://localhost:7071/artifactory/libs-release-local/com/mars/photoapp/k8sPhotoAppApiUsers/' + artifactVersion + '/k8sPhotoAppApiUsers-' + artifactVersion + '.war'
+           echo "${tagVersion} with artifact version ${artifactVersion}"
+           echo "Deploying war from http://localhost:7071/artifactory/libs-release-local/com/mars/photoapp/k8sPhotoAppApiUsers/${artifactVersion}/k8sPhotoAppApiUsers-${artifactVersion}.war"
+           sh 'curl -u admin:password -O ' + retrieveArtifact
+           sh 'curl -u deployer:deployer -T *.war "http://localhost:2020/manager/text/deploy?path=/usermanagement&update=true"'
+         }
+
+         stage("Smoke Test Dev"){
+             sh "curl --retry-delay 10 --retry 5 http://localhost:2020/usermanagement/users/status/check"
+         }
+
+      }
+
+
       if(env.BRANCH_NAME ==~ /release.*/){
         pom = readMavenPom file: 'pom.xml'
         artifactVersion = pom.version.replace("-SNAPSHOT", "")
