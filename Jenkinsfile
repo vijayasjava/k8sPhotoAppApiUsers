@@ -107,7 +107,7 @@ node {
          stage("Deploy from Artifactory to QA"){
            retrieveArtifact = 'http://localhost:7071/artifactory/libs-release-local/com/mars/photoapp/' + artifactVersion + '/k8sPhotoAppApiUsers-' + artifactVersion + '.war'
            echo "${tagVersion} with artifact version ${artifactVersion}"
-           echo "Deploying war from http://localhost:7071/artifactory/libs-release-local/com/mars/photoapp/${artifactVersion}/k8sPhotoAppApiUsers--${artifactVersion}.war"
+           echo "Deploying war from http://localhost:7071/artifactory/libs-release-local/com/mars/photoapp/${artifactVersion}/k8sPhotoAppApiUsers-${artifactVersion}.war"
            sh 'curl -u admin:password -O ' + retrieveArtifact
            sh 'curl -u deployer:deployer -T *.war "http://localhost:2020/manager/text/deploy?path=/usermanagement&update=true"'
          }
