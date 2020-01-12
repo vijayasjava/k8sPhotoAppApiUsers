@@ -23,7 +23,7 @@ public class UsersController {
 
 	@GetMapping("/status/check")
 	public String status() {
-		return "application is up and running well..please be happpy deploy by pipeline script. Starting multi branch pipeline update one vijaya final relase of 0.2.3 version";
+		return "V 0.3.1";
 	}
 
 }
