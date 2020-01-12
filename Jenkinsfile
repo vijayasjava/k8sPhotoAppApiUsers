@@ -68,6 +68,17 @@ node {
 
       }
 
+      if(env.BRANCH_NAME ==~ /feature.*/){
+        stage('Deploy') {
+           sh 'curl -u deployer:deployer -T target/**.war "http://localhost:4040/manager/text/deploy?path=/usermanagement&update=true"'
+        }
+
+        stage("Smoke Test"){
+           sh "curl --retry-delay 10 --retry 5 http://localhost:4040/usermanagement/users/status/check"
+        }
+
+      }
+
       if(env.BRANCH_NAME ==~ /release.*/){
         pom = readMavenPom file: 'pom.xml'
         artifactVersion = pom.version.replace("-SNAPSHOT", "")
