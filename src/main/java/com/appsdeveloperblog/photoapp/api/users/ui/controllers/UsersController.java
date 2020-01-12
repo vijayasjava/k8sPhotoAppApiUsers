@@ -25,7 +25,7 @@ public class UsersController {
 
 	@GetMapping("/status/check")
 	public String status() {
-		return "application is up and running well..please be happpy deploy by pipeline script. Starting multi branch pipeline update one vijaya";
+		return "application is up and running well..please be happpy deploy by pipeline script. Starting multi branch pipeline update one vijaya final relase of 2.0 version";
 	}
 
 }
