@@ -23,7 +23,7 @@ public class UsersController {
 
 	@GetMapping("/status/check")
 	public String status() {
-		return "V 0.3.1";
+		return "V 0.5.0-SNAPSOT";
 	}
 
 }
